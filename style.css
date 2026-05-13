@@ -1,0 +1,476 @@
+/* 
+================================================================
+Important CSS Concepts:
+1. margin: 0 auto; -> Centers the box (requires a width).
+2. box-shadow: -> Adds depth. 0 (Left/Right) 4px (Down) 8px (Blur).
+3. rgba(0,0,0,0.1) -> Black color with only 10% visibility.
+4. border-radius: -> Makes corners round.
+================================================================
+*/
+
+/* 1. BASIC RESET - Standard for every project */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    line-height: 1.6;
+    background-color: #f4f4f9; 
+    color: #333;
+}
+
+/* 2. HEADER - The top dark bar */
+header {
+    background-color: #637396; 
+    color: white;
+    text-align: center;
+    padding: 60px 20px; 
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+}
+
+
+/* 3. SECTIONS - Creating white cards for content  */
+section {
+    max-width: 800px; 
+    margin: 20px auto; 
+    padding: 30px;
+    background: white;
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+}
+
+/* 4. HEADINGS - Adding a small accent line */
+h2 {
+    color: #2c3e50;
+    border-bottom: 3px solid #3498db;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* 5. SKILLS & LISTS */
+ul {
+    list-style-type: none; 
+    padding: 0;
+}
+
+li {
+    background: #e8f4fd;
+    margin: 10px 0;
+    padding: 10px;
+    border-left: 5px solid #3498db; 
+    font-weight: bold;
+}
+
+/* 6. LINKS & BUTTONS */
+a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #2c3e50;
+}
+
+/* 7. FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* NAVBAR STYLING */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #282852;
+    color: white;
+    padding: 15px 30px;
+}
+
+nav h2 {
+    margin: 0;
+    border: none;
+
+    color: #ffffff;          
+    font-size: 1.6rem;     
+    font-weight: 700;      
+    letter-spacing: 1px;     
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav ul li {
+    background: none; 
+    border: none;
+    padding: 0;
+}
+
+nav ul li a {
+    color: white;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #3498db;
+}
+
+#projects p {
+    font-style: italic;
+    color: #9b9393;
+}
+
+
+/* PROJECT CONTAINER (Flexbox Layout) */
+.project-container {
+    display: flex;
+    /* Side by side layout */
+    justify-content: space-between;
+    gap: 20px;
+    /* Space between cards */
+    flex-wrap: wrap;
+    /*Screen chhoti hone par items next line me chale jayenge (responsive) */
+
+}
+
+/* PROJECT CARD DESIGN */
+.project-card {
+/* 
+  flex: [grow] [shrink] [basis];
+  1 = Yes, expand to fill extra space.
+  1 = Yes, shrink if the screen gets too small.
+  250px = The ideal starting width for this item.
+*/
+    flex: 1 1 250px;
+    /* Responsive width */
+    background: #f9f9f9;
+
+    padding: 20px;
+    border-radius: 10px;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+    transition: transform 0.3s;
+}
+
+/* HOVER EFFECT */
+.project-card:hover {
+    transform: translateY(-5px);
+    /* Lift effect */
+}
+
+/* PROJECT TITLE */
+.project-card h3 {
+    margin-top: 0;
+    color: #2c3e50;
+}
+
+/* BUTTON STYLE */
+.project-card a {
+    display: inline-block;
+    margin-top: 10px;
+
+    background: #3498db;
+    color: white;
+
+    padding: 8px 12px;
+    border-radius: 5px;
+
+    text-decoration: none;
+}
+
+/* BUTTON HOVER */
+.project-card a:hover {
+    background: #2c3e50;
+}
+
+
+/* HEADER IMPROVEMENT */
+header {
+    background: linear-gradient(to right, #141e30, #243b55);
+    color: white;
+
+    text-align: center;
+    padding: 70px 20px;
+}
+
+/* PROFILE IMAGE */
+.profile-image {
+    width: 120px;
+    height: 160px;
+
+    border-radius: 50%; /* Circle image */
+
+    object-fit: cover;
+
+    border: 5px solid white;
+
+    margin-bottom: 20px;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* HEADER TEXT */
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* SECTION HOVER EFFECT */
+section {
+    transition: transform 0.3s;
+}
+
+section:hover {
+    transform: translateY(-5px);
+}
+
+/* PROJECT CARD */
+.project-card {
+    background: #ffffff;
+
+    border: 1px solid #ddd;
+}
+
+/* BUTTON TRANSITION */
+.project-card a {
+    transition: 0.3s;
+}
+
+
+/* 
+============================================================
+RESPONSIVE DESIGN
+============================================================
+This code runs when screen size becomes smaller
+(Like mobile phones or tablets)
+============================================================
+*/
+
+@media (max-width: 768px) {
+
+    /* Navbar mobile layout */
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        margin-top: 10px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* Header text smaller */
+    header h1 {
+        font-size: 2rem;
+    }
+
+    /* Profile image smaller */
+    .profile-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    /* Sections padding reduce */
+    section {
+        margin: 15px;
+        padding: 20px;
+    }
+
+    /* Project cards stack vertically */
+    .project-container {
+        flex-direction: column;
+    }
+
+    /* Buttons full width */
+    .project-card a {
+        display: block;
+        text-align: center;
+    }
+}
+
+/* ============================================================
+1. SMOOTH SCROLLING
+============================================================ */
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* ============================================================
+2. NAVBAR STICKY EFFECT
+============================================================ */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+
+/* ============================================================
+3. NAVBAR LINK ANIMATION
+============================================================ */
+nav ul li a {
+    position: relative;
+
+    transition: color 0.3s ease;
+}
+
+/* Animated underline */
+nav ul li a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -5px;
+
+    width: 0%;
+    height: 2px;
+
+    background-color: #00bcd4;
+
+    transition: width 0.3s ease;
+}
+
+/* Hover effect */
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+
+/* ============================================================
+4. HEADER ANIMATION
+============================================================ */
+
+/* Fade In Animation */
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply animation */
+header {
+    animation: fadeIn 1s ease-in-out;
+}
+
+
+/* ============================================================
+5. PROFILE IMAGE HOVER EFFECT
+============================================================ */
+.profile-image {
+    transition: transform 0.4s ease,
+                box-shadow 0.4s ease;
+}
+
+/* Zoom effect */
+.profile-image:hover {
+
+    transform: scale(1.05);
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+
+/* ============================================================
+6. SECTION HOVER IMPROVEMENT
+============================================================ */
+section {
+
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+/* Lift + glow */
+section:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+
+/* ============================================================
+7. PROJECT CARD BEAUTIFUL EFFECT
+============================================================ */
+.project-card {
+
+    overflow: hidden;
+
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+/* Card hover */
+.project-card:hover {
+
+    transform: translateY(-10px);
+
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+
+
+/* ============================================================
+8. BUTTON ANIMATION
+============================================================ */
+.project-card a {
+
+    transition: all 0.3s ease;
+}
+
+/* Hover button */
+.project-card a:hover {
+
+    background: #1d3557;
+
+    transform: scale(1.05);
+}
+
+
+/* ============================================================
+9. FOOTER IMPROVEMENT
+============================================================ */
+footer {
+
+    background: #1b1b2f;
+
+    color: #ddd;
+
+    margin-top: 30px;
+}
+
+
+/* ============================================================
+10. PAGE LOAD ANIMATION
+============================================================ */
+body {
+
+    animation: fadeIn 1s ease;
+}
